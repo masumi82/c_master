@@ -128,6 +128,7 @@ static void test_dispatch_max_args(void)
     TEST_ASSERT_EQUAL_INT(42, cmd_dispatch(table, TABLE_LEN, ok, out, sizeof out));
     TEST_ASSERT_EQUAL_INT(CMD_MAX_ARGS, spy_argc);
     TEST_ASSERT_EQUAL_STRING("7", spy_args[CMD_MAX_ARGS - 1]);
+    TEST_ASSERT_TRUE(spy_argv_null_terminated);
 
     spy_calls = 0;
     TEST_ASSERT_EQUAL_INT(CMD_ERR_TOO_MANY_ARGS, cmd_dispatch(table, TABLE_LEN, too_many, out, sizeof out));

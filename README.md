@@ -1,7 +1,7 @@
 # c_master — C言語 習熟演習
 
-組込み（Raspberry Pi）を目標に、C言語を「使える」レベルまで鍛えるための演習環境です。
-学習の全体像は [ROADMAP.md](ROADMAP.md) を参照してください。
+組込み（Raspberry Pi）を目標に、C言語を「使える」レベルまで鍛えるための1週間の演習環境です。
+日ごとの予定は [ROADMAP.md](ROADMAP.md) を参照してください。
 
 ## 必要なもの
 ```bash
@@ -11,11 +11,13 @@ sudo apt install -y build-essential gdb valgrind
 ## 構成
 ```
 common/          共通のビルド設定（common.mk）とテストフレームワーク Unity
-phase0_env/      Phase 0 の課題
-phase1_lang/     Phase 1 の課題
+phase0_env/      1日目の課題（開発環境）
+phase1_lang/     2〜4日目の課題（言語の深部）
+phase2_pi/       5日目の課題（Raspberry Pi 実機。Pi 上でビルドする）
 docs/            設計書・計画書
 ```
 各課題ディレクトリは `README.md`（課題文）、`src/`（あなたが実装する）、`test/`（提供テスト）、`Makefile` からなります。
+`phase2_pi/` は実機を使うためテストがなく、進め方は課題の README に従います。
 
 ## 課題の進め方
 1. 課題の `README.md` を読む

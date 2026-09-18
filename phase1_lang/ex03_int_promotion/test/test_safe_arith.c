@@ -90,6 +90,7 @@ static void test_add_u32(void)
 
 void run_safe_arith_tests(void)
 {
+    UnitySetTestFile(__FILE__);
     RUN_TEST(test_add_i32);
     RUN_TEST(test_add_i32_overflow);
     RUN_TEST(test_mul_i32);

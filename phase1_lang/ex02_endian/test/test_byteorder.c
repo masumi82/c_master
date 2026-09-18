@@ -71,6 +71,7 @@ static void test_unaligned_access(void)
 
 void run_byteorder_tests(void)
 {
+    UnitySetTestFile(__FILE__);
     RUN_TEST(test_is_little_endian_matches_compiler);
     RUN_TEST(test_store_be16);
     RUN_TEST(test_store_be32);

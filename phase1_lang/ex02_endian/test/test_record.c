@@ -70,6 +70,7 @@ static void test_roundtrip_extremes(void)
 
 void run_record_tests(void)
 {
+    UnitySetTestFile(__FILE__);
     RUN_TEST(test_serialize_layout);
     RUN_TEST(test_serialize_buffer_too_small);
     RUN_TEST(test_deserialize);

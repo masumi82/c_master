@@ -17,6 +17,7 @@ static void test_q8(void) { TEST_ASSERT_EQUAL_INT64((long long)((-7) >> 1), answ
 
 void run_quiz_tests(void)
 {
+    UnitySetTestFile(__FILE__);
     RUN_TEST(test_q1);
     RUN_TEST(test_q2);
     RUN_TEST(test_q3);

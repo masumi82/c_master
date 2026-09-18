@@ -26,6 +26,7 @@ docs/            設計書・計画書
    make test
    make asan
    ```
+   課題の README に「最終確認」がある場合は、そちらのコマンドをすべて通してください。
 5. Claude Code に「phase1_lang/ex01_bitops をレビューして」のように依頼する。README の「説明できるようになるべきこと」についても質問されます
 6. `git commit` して、ROADMAP.md のチェックボックスを埋める
 

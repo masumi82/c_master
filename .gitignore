@@ -1,0 +1,17 @@
+# build outputs
+build/
+*.o
+*.out
+*.gcda
+*.gcno
+*.gcov
+# secrets / local
+.env
+.env.*
+*.pem
+*.key
+config/local.*
+# misc
+__pycache__/
+node_modules/
+.venv/

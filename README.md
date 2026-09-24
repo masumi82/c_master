@@ -10,14 +10,16 @@ sudo apt install -y build-essential gdb valgrind
 
 ## 構成
 ```
-common/          共通のビルド設定（common.mk）とテストフレームワーク Unity
+common/          共通のビルド設定（common.mk、C++ 用 common_cpp.mk）とテストフレームワーク Unity
 phase0_env/      1日目の課題（開発環境）
 phase1_lang/     2〜4日目の課題（言語の深部）
 phase2_pi/       5日目の課題（Raspberry Pi 実機。Pi 上でビルドする）
+phase3_cpp/      補足課題（任意・半日）。C++ を C との違いで押さえる。g++ は build-essential に含まれる
 docs/            設計書・計画書
 ```
 各課題ディレクトリは `README.md`（課題文）、`src/`（あなたが実装する）、`test/`（提供テスト）、`Makefile` からなります。
 `phase2_pi/` は実機を使うためテストがなく、進め方は課題の README に従います。
+`phase3_cpp/` は `common/common_cpp.mk` で `g++ -std=c++17` を使ってビルドしますが、make ターゲットは C の課題と同じです。
 
 ## 課題の進め方
 1. 課題の `README.md` を読む

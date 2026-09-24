@@ -21,6 +21,7 @@ docs/            設計書・計画書
 各課題ディレクトリは `README.md`（課題文）、`src/`（あなたが実装する）、`test/`（提供テスト）、`Makefile` からなります。
 `phase2_pi/` は実機を使うためテストがなく、進め方は課題の README に従います。
 `phase3_cpp/` は `common/common_cpp.mk` で `g++ -std=c++17` を使ってビルドしますが、make ターゲットは C の課題と同じです。
+`upstream/` はコードのない文書演習で、雛形（`template.md`）とレビュー観点（`checklist.md`）からなります。
 
 ## 課題の進め方
 1. 課題の `README.md` を読む

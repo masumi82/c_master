@@ -15,6 +15,7 @@ phase0_env/      1日目の課題（開発環境）
 phase1_lang/     2〜4日目の課題（言語の深部）
 phase2_pi/       5日目の課題（Raspberry Pi 実機。Pi 上でビルドする）
 phase3_cpp/      補足課題（任意・半日）。C++ を C との違いで押さえる。g++ は build-essential に含まれる
+upstream/        別件（2〜3日）。要件定義書・基本設計書を書く練習。コードはなく、雛形とレビュー観点のみ
 docs/            設計書・計画書
 ```
 各課題ディレクトリは `README.md`（課題文）、`src/`（あなたが実装する）、`test/`（提供テスト）、`Makefile` からなります。

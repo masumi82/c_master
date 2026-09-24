@@ -3,7 +3,7 @@
 int32_t sum_array(const int32_t *a, size_t n)
 {
     int32_t sum = 0;
-    for (size_t i = 0; i <= n; i++) {
+    for (size_t i = 0; i < n; i++) {
         sum += a[i];
     }
     return sum;
@@ -12,6 +12,7 @@ int32_t sum_array(const int32_t *a, size_t n)
 size_t count_positive(const int32_t *a, size_t n)
 {
     size_t count;
+    count = 0;
     for (size_t i = 0; i < n; i++) {
         if (a[i] > 0) {
             count++;
@@ -22,5 +23,15 @@ size_t count_positive(const int32_t *a, size_t n)
 
 int32_t average2(int32_t a, int32_t b)
 {
-    return (a + b) / 2;
+    int32_t half = a / 2 + b / 2;   /* never overflows: |a/2| + |b/2| fits */
+    int32_t rem  = a % 2 + b % 2;   /* -2, -1, 0, 1, or 2 */
+
+    /* Half cases (rem == +-1) must round the WHOLE value toward zero. */
+    if (rem == -1 && half > 0) {
+        return half - 1;
+    }
+    if (rem == 1 && half < 0) {
+        return half + 1;
+    }
+    return half + rem / 2;
 }

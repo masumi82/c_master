@@ -16,9 +16,9 @@
 | 5日目 | phase2_pi/ex01_blink、1週間のふり返り | 3h | 実機の GPIO を C から操作できる |
 
 ## チェックリスト
-- [ ] 1日目: ex01_toolchain — gdb / valgrind の導入、`make test` / `make asan` / `make valgrind`、gdb の基本操作
-- [ ] 1日目: ex02_bug_hunt — 警告・ASan・UBSan で3つのバグを特定して直す
-- [ ] 2日目: ex01_bitops — ビット操作とフィールド抽出/挿入
+- [x] 1日目: ex01_toolchain — gdb / valgrind の導入、`make test` / `make asan` / `make valgrind`、gdb の基本操作
+- [x] 1日目: ex02_bug_hunt — 警告・ASan・UBSan で3つのバグを特定して直す
+- [x] 2日目: ex01_bitops — ビット操作とフィールド抽出/挿入
 - [ ] 2日目: 読み物 — `volatile` と `const` の意味、組込みで `volatile` が必要になる場面
 - [ ] 3日目: ex02_endian — エンディアン変換とバイト列シリアライズ、パディング
 - [ ] 4日目: ex03_int_promotion — 整数昇格クイズ、オーバーフローしない算術

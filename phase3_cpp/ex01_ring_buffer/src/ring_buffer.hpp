@@ -2,7 +2,7 @@
 //
 // Compare with the C version you would write:
 //
-//   typedef struct { void *buf; size_t elem_size, cap, head, tail, count; } ring_t;
+//   typedef struct { void *buf; size_t elem_size, cap, head, count; } ring_t;
 //   void ring_init(ring_t *r, void *storage, size_t elem_size, size_t cap);
 //   bool ring_push(ring_t *r, const void *elem);
 //   bool ring_pop(ring_t *r, void *out);

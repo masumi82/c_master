@@ -37,6 +37,7 @@ static void test_push_then_pop_fifo(void)
     TEST_ASSERT_TRUE(rb.push(20));
     TEST_ASSERT_TRUE(rb.push(30));
     TEST_ASSERT_EQUAL_size_t(3, rb.size());
+    TEST_ASSERT_FALSE(rb.full());       // 3 of 4: not full yet
 
     int v = 0;
     TEST_ASSERT_TRUE(rb.pop(v));
@@ -155,9 +156,10 @@ static void test_const_access(void)
     check_via_const_ref(rb, 0);
     TEST_ASSERT_TRUE(rb.push(1));
     check_via_const_ref(rb, 1);
-    for (int i = 0; i < 3; ++i) {
-        TEST_ASSERT_TRUE(rb.push(i));
-    }
+    TEST_ASSERT_TRUE(rb.push(2));
+    TEST_ASSERT_TRUE(rb.push(3));
+    check_via_const_ref(rb, 3);
+    TEST_ASSERT_TRUE(rb.push(4));
     check_via_const_ref(rb, 4);
 }
 

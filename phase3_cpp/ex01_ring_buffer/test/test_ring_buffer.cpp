@@ -14,9 +14,11 @@ struct Sample {
 };
 
 // Compiles only if size()/empty()/full() are const member functions.
-static std::size_t size_via_const_ref(const RingBuffer<int, 4> &rb)
+static void check_via_const_ref(const RingBuffer<int, 4> &rb, std::size_t expected)
 {
-    return rb.empty() && !rb.full() ? rb.size() : rb.size();
+    TEST_ASSERT_EQUAL_size_t(expected, rb.size());
+    TEST_ASSERT_EQUAL(expected == 0, rb.empty());
+    TEST_ASSERT_EQUAL(expected == rb.capacity(), rb.full());
 }
 
 static void test_new_buffer_is_empty(void)
@@ -150,8 +152,13 @@ static void test_struct_elements(void)
 static void test_const_access(void)
 {
     RingBuffer<int, 4> rb;
+    check_via_const_ref(rb, 0);
     TEST_ASSERT_TRUE(rb.push(1));
-    TEST_ASSERT_EQUAL_size_t(1, size_via_const_ref(rb));
+    check_via_const_ref(rb, 1);
+    for (int i = 0; i < 3; ++i) {
+        TEST_ASSERT_TRUE(rb.push(i));
+    }
+    check_via_const_ref(rb, 4);
 }
 
 int main(void)

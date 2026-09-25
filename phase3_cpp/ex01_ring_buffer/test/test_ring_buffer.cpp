@@ -1,4 +1,4 @@
-// Provided tests. Do not modify.
+// 提供するテスト。変更しないこと。
 #include "unity.h"
 #include "ring_buffer.hpp"
 
@@ -7,13 +7,13 @@
 void setUp(void) {}
 void tearDown(void) {}
 
-// A plain-old-data element type: C++ classes hold any T, not just int.
+// 単純な構造体の要素型。C++ のクラスは int に限らず任意の T を持てる。
 struct Sample {
     std::uint16_t adc;
     std::int8_t   temp;
 };
 
-// Compiles only if size()/empty()/full() are const member functions.
+// size()/empty()/full() が const メンバ関数でなければコンパイルできない。
 static void check_via_const_ref(const RingBuffer<int, 4> &rb, std::size_t expected)
 {
     TEST_ASSERT_EQUAL_size_t(expected, rb.size());
@@ -23,7 +23,7 @@ static void check_via_const_ref(const RingBuffer<int, 4> &rb, std::size_t expect
 
 static void test_new_buffer_is_empty(void)
 {
-    RingBuffer<int, 4> rb;          // no init() call: the constructor did it
+    RingBuffer<int, 4> rb;          // init() は呼ばない。コンストラクタが済ませている
     TEST_ASSERT_TRUE(rb.empty());
     TEST_ASSERT_FALSE(rb.full());
     TEST_ASSERT_EQUAL_size_t(0, rb.size());
@@ -37,7 +37,7 @@ static void test_push_then_pop_fifo(void)
     TEST_ASSERT_TRUE(rb.push(20));
     TEST_ASSERT_TRUE(rb.push(30));
     TEST_ASSERT_EQUAL_size_t(3, rb.size());
-    TEST_ASSERT_FALSE(rb.full());       // 3 of 4: not full yet
+    TEST_ASSERT_FALSE(rb.full());       // 4 個中 3 個。まだ満杯ではない
 
     int v = 0;
     TEST_ASSERT_TRUE(rb.pop(v));
@@ -55,7 +55,7 @@ static void test_push_fails_when_full(void)
     TEST_ASSERT_TRUE(rb.push(1));
     TEST_ASSERT_TRUE(rb.push(2));
     TEST_ASSERT_TRUE(rb.full());
-    TEST_ASSERT_FALSE(rb.push(3));      // rejected, nothing overwritten
+    TEST_ASSERT_FALSE(rb.push(3));      // 拒否され、何も上書きされない
     TEST_ASSERT_EQUAL_size_t(2, rb.size());
 
     int v = 0;
@@ -68,14 +68,14 @@ static void test_pop_fails_when_empty(void)
     RingBuffer<int, 2> rb;
     int v = 99;
     TEST_ASSERT_FALSE(rb.pop(v));
-    TEST_ASSERT_EQUAL_INT(99, v);       // output must be left untouched
+    TEST_ASSERT_EQUAL_INT(99, v);       // 出力先は変更されていないこと
 }
 
 static void test_wraparound(void)
 {
     RingBuffer<int, 3> rb;
     int v = 0;
-    // Fill, drain two, refill: the write index must wrap to the start.
+    // 満たす、2 個取り出す、また入れる。書き込み位置が先頭に戻るはず。
     TEST_ASSERT_TRUE(rb.push(1));
     TEST_ASSERT_TRUE(rb.push(2));
     TEST_ASSERT_TRUE(rb.push(3));

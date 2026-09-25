@@ -1,15 +1,15 @@
-# Shared build rules for C++ exercises (Unity tests, header-only or .cpp sources).
+# C++ 課題で共通のビルド規則（Unity のテスト、ヘッダだけの実装か .cpp）。
 #
-# Exercise Makefile:
-#   SRCS  := src/foo.cpp              # optional; omit for header-only exercises
-#   TESTS := test/test_foo.cpp        # provided Unity tests
+# 課題側の Makefile の書き方:
+#   SRCS  := src/foo.cpp              # 任意。ヘッダだけの課題では書かない
+#   TESTS := test/test_foo.cpp        # 提供する Unity のテスト
 #   include ../../common/common_cpp.mk
 #
-# Targets are the same as common.mk:
+# ターゲットは common.mk と同じ:
 #   make test / make test OPT=-O2 / make asan / make valgrind / make clean
 #
-# unity.c is compiled as C with $(CC); everything else is compiled and linked
-# as C++17 with $(CXX) using the same warning set as the C exercises.
+# unity.c は $(CC) で C としてコンパイルする。それ以外は $(CXX) で C++17 として
+# コンパイル・リンクし、警告の設定は C の課題と同じにする。
 
 COMMON_DIR := $(patsubst %/,%,$(dir $(lastword $(MAKEFILE_LIST))))
 UNITY_DIR  := $(COMMON_DIR)/unity

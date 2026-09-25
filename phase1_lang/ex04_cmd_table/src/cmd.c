@@ -2,7 +2,7 @@
 
 int cmd_dispatch(const cmd_entry_t *table, size_t table_len, char *line, char *out, size_t out_len)
 {
-    /* TODO: implement */
+    /* TODO: 実装する */
     (void)table;
     (void)table_len;
     (void)line;

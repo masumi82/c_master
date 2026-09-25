@@ -4,7 +4,7 @@
 #include "cmd.h"
 #include "unity.h"
 
-/* Spy: records how it was called. */
+/* スパイ: どう呼ばれたかを記録する。 */
 static int spy_calls;
 static int spy_argc;
 static char spy_args[CMD_MAX_ARGS][32];

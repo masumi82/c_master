@@ -1,16 +1,16 @@
-# Shared build rules for all exercises.
+# 全課題で共通のビルド規則。
 #
-# Exercise Makefile:
-#   SRCS  := src/foo.c           # code the learner implements
-#   TESTS := test/test_foo.c     # provided Unity tests
+# 課題側の Makefile の書き方:
+#   SRCS  := src/foo.c           # 学習者が実装するコード
+#   TESTS := test/test_foo.c     # 提供する Unity のテスト
 #   include ../../common/common.mk
 #
-# Targets:
-#   make test            build and run tests
-#   make test OPT=-O2    same, with optimization (reveals more warnings)
-#   make asan            run tests with AddressSanitizer + UndefinedBehaviorSanitizer
-#   make valgrind        run tests under valgrind memcheck
-#   make clean
+# ターゲット:
+#   make test            テストをビルドして実行
+#   make test OPT=-O2    最適化を有効にして同じことをする（追加の警告が出る）
+#   make asan            AddressSanitizer と UndefinedBehaviorSanitizer 付きで実行
+#   make valgrind        valgrind memcheck の上で実行
+#   make clean           ビルド成果物を削除
 
 COMMON_DIR := $(patsubst %/,%,$(dir $(lastword $(MAKEFILE_LIST))))
 UNITY_DIR  := $(COMMON_DIR)/unity

@@ -5,9 +5,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-/* Check with `gpioinfo`: the chip that has a line named "GPIO17". */
+/* `gpioinfo` で確かめる: "GPIO17" という名前のラインを持つチップ。 */
 #define CHIP_PATH "/dev/gpiochip0"
-/* BCM GPIO17 = physical pin 11. */
+/* BCM 番号の GPIO17 = 物理ピンの 11 番。 */
 #define LED_OFFSET 17u
 #define BLINK_COUNT 10
 #define HALF_PERIOD_MS 500L
@@ -18,11 +18,11 @@ static void sleep_ms(long ms)
     nanosleep(&ts, NULL);
 }
 
-/* Toggle the LED BLINK_COUNT times (on + off = 1 blink), HALF_PERIOD_MS each.
- * Return 0 on success, -1 if setting the value fails. */
+/* LED を BLINK_COUNT 回点滅させる（点灯と消灯で 1 回）。それぞれ HALF_PERIOD_MS 待つ。
+ * 成功したら 0、値の設定に失敗したら -1 を返す。 */
 static int blink(struct gpiod_line_request *request, unsigned int offset)
 {
-    /* TODO: implement with gpiod_line_request_set_value() and sleep_ms() */
+    /* TODO: gpiod_line_request_set_value() と sleep_ms() で実装する */
     (void)request;
     (void)offset;
     return 0;

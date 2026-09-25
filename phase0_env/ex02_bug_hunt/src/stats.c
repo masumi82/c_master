@@ -23,10 +23,10 @@ size_t count_positive(const int32_t *a, size_t n)
 
 int32_t average2(int32_t a, int32_t b)
 {
-    int32_t half = a / 2 + b / 2;   /* never overflows: |a/2| + |b/2| fits */
-    int32_t rem  = a % 2 + b % 2;   /* -2, -1, 0, 1, or 2 */
+    int32_t half = a / 2 + b / 2;   /* 溢れない: |a/2| + |b/2| は int32_t に収まる */
+    int32_t rem  = a % 2 + b % 2;   /* -2, -1, 0, 1, 2 のどれか */
 
-    /* Half cases (rem == +-1) must round the WHOLE value toward zero. */
+    /* rem が ±1（端数 0.5）のときは、全体を 0 方向に丸める。 */
     if (rem == -1 && half > 0) {
         return half - 1;
     }

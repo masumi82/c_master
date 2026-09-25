@@ -1,7 +1,7 @@
 #ifndef ANSWERS_H
 #define ANSWERS_H
 
-/* Sentinel meaning "not answered yet". */
+/* 「まだ答えていない」を表す番兵の値。 */
 #define ANSWER_UNSET (-999999LL)
 
 extern const long long answer_q1;

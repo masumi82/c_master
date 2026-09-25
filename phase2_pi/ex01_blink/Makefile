@@ -1,5 +1,5 @@
-# Build on the Raspberry Pi itself (needs libgpiod v2: sudo apt install libgpiod-dev).
-# Not part of common.mk: this exercise talks to real hardware and has no unit tests.
+# Raspberry Pi 本体の上でビルドする（libgpiod v2 が必要: sudo apt install libgpiod-dev）。
+# 実機を操作する課題で単体テストがないため、common.mk は使わない。
 
 CFLAGS := -std=c11 -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror -g -O0
 

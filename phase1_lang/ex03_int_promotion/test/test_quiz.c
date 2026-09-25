@@ -5,7 +5,7 @@
 
 void run_quiz_tests(void);
 
-/* Expected values are computed by the compiler, not hard-coded. */
+/* 期待値は埋め込まず、コンパイラに計算させている。 */
 static void test_q1(void) { TEST_ASSERT_EQUAL_INT64((long long)(-1 < 0u), answer_q1); }
 static void test_q2(void) { TEST_ASSERT_EQUAL_INT64((long long)((uint8_t)200 + (uint8_t)100), answer_q2); }
 static void test_q3(void) { TEST_ASSERT_EQUAL_INT64((long long)(uint8_t)((uint8_t)200 + (uint8_t)100), answer_q3); }
